@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Greeting Website</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: rgb(118, 170, 141); /* Set background color to sea green */
+        margin: 0; /* Remove default margin */
+        padding: 0; /* Remove default padding */
+    }
+    .container {
+        margin-top: 100px;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Greeting Website</h1>
+        <p>Please enter your name:</p>
+        <input type="text" id="nameInput">
+        <button onclick="greet()">Greet</button>
+        <p id="greeting"></p>
+    </div>
+
+    <script>
+        function greet() {
+            const name = document.getElementById("nameInput").value;
+            const currentHour = new Date().getHours();
+            let greeting = "";
+
+            if (currentHour >= 0 && currentHour < 6) {
+                greeting = "Good night";
+            } else if (currentHour >= 6 && currentHour < 12) {
+                greeting = "Good morning";
+            } else if (currentHour >= 12 && currentHour < 18) {
+                greeting = "Good afternoon";
+            } else {
+                greeting = "Good evening";
+            }
+
+            document.getElementById("greeting").textContent = `${greeting}, ${name}!`;
+        }
+    </script>
+</body>
+</html>
